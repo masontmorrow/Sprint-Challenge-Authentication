@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, withRouter } from "react-router-dom";
-import { JokesList, Login, Register } from "./components";
+import { Route, withRouter, Redirect } from "react-router-dom";
+import { JokesList, Login, Register, Navigation } from "./components";
 
 class App extends Component {
 
@@ -13,11 +13,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navigation/>
         {localStorage.getItem('jwt') ? (
           <div>
             <button onClick={this.handleSignout}>Sign Out</button>
           </div>
-        ):(null)}
+        ):(
+          <Route exact path="/" render={() => <Redirect to="/login"/>}/>
+        )}
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/jokes" component={JokesList}/>
