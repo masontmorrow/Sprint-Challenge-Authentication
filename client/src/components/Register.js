@@ -16,8 +16,7 @@ class Register extends React.Component {
         e.preventDefault();
         axios.post('http://localhost:5000/api/users', this.state)
             .then(response => {
-                localStorage.setItem('jwt', response.data.token);
-                this.props.history.push('/jokes');
+                this.props.history.push('/login');
             })
             .catch(err => {
                 this.setState({ error: err.message });
@@ -31,7 +30,7 @@ class Register extends React.Component {
                 <form>
                     <input type="text" name="username" value={username} placeholder="username" onChange={this.handleChange}/>
                     <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
-                    <button onClick={(e) => this.handleSubmit(e)}>Sign Up</button>
+                    <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
                 {error ? (
                     <div>

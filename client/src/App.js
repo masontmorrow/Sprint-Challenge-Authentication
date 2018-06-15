@@ -20,7 +20,7 @@ class App extends Component {
         ):(null)}
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
-        <Route pate="/jokes" component={JokesList}/>
+        <Route path="/jokes" component={JokesList}/>
       </div>
     );
   }
