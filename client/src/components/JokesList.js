@@ -9,6 +9,12 @@ class JokesList extends React.Component {
 
     componentDidMount() {
         const token = localStorage.getItem('jwt');
+        if (!token) {
+            this.setState({ error: `Please log in. Redirecting...`});
+            setTimeout(() => {
+                this.props.history.push('/login');
+            }, 2400);
+        } else {
         const requestOptions = {
             headers: {
                 Authorization: token
@@ -17,6 +23,7 @@ class JokesList extends React.Component {
         axios.get('http://localhost:5000/api/jokes', requestOptions)
             .then(response => this.setState({ jokes: response.data }))
             .catch(err => this.setState({ error: err.message }));
+        }      
     }
 
     render() {
