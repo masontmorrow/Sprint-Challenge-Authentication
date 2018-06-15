@@ -23,13 +23,13 @@ UserSchema.pre('save', function(next) {
     .hash(this.password, SALT_ROUNDS)
     .then(hash => {
       this.password = hash;
-      next();
+      return next();
     })
     .catch(err => next(err));
 });
 
-UserSchema.methods.checkPassword = function(plainTextPW) {
-  return bcrypt.compare(plainTextPW, this.password);
+UserSchema.methods.checkPassword = function(plainTextPW, callback) {
+  return bcrypt.compare(plainTextPW, this.password, callback);
 };
 
 module.exports = mongoose.model('User', UserSchema);
