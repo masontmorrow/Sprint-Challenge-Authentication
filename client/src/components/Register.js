@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Register extends React.Component {
     state = {
@@ -27,16 +28,21 @@ class Register extends React.Component {
         const { username, password, error } = this.state;
         return (
             <div>
-                <form>
-                    <input type="text" name="username" value={username} placeholder="username" onChange={this.handleChange}/>
-                    <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
-                    <button onClick={this.handleSubmit}>Sign Up</button>
-                </form>
-                {error ? (
-                    <div>
-                        <h4>{error}</h4>
-                    </div>
-                ):(null)}
+                <h3>Welcome to Dad Jokes</h3>
+                <div className="form-container">
+                    <form>
+                        <h3>Register</h3>
+                        <input type="text" name="username" value={username} placeholder="username" onChange=    {this.handleChange}/>
+                        <input type="password" name="password" value={password} placeholder="password" onChange=    {this.handleChange}/>
+                        <button onClick={this.handleSubmit}>Sign Up</button>
+                    </form>
+                        <Link to="/login" className="login-link">Log In</Link>
+                    {error ? (
+                        <div>
+                            <h4>{error}</h4>
+                        </div>
+                    ):(null)}
+                </div>
             </div>
         );
     }

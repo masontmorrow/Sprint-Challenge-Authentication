@@ -2,6 +2,21 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(70, 70, 70);
+}
+
+.register-link, .login-link {
+  margin: 1rem;
+  color: rgb(70, 70, 70);
+  text-decoration: underline;
+  font-size: .9rem;
+}
+
 .App {
   display: flex;
   flex-flow: column wrap;
