@@ -1,20 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
+  align-items: center;
+  background-color: rgb(218, 218, 218);
+  min-height: 100vh;
+  text-align: center;
 }
 
 .joke-list {
   display: flex;
   flex-flow: row wrap;
-  background-color: rgb(156, 156, 156);
+  align-content: flex-start;
+  max-width: 1280px;
 }
+
+@media (max-width: 1279px) {
+  .joke-list {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 959px) {
+  .joke-list {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 639px) {
+  .joke-list {
+    max-width: 320px;
+  }
+}
+
+
 
 .joke-card {
   display: flex;
+  width: 300px;
+  height: 210px;
   flex-flow: column wrap;
   background: white;
   border-radius: 2px;
   padding: 10px 10px 15px;
   margin: 10px;
+}
+
+.nav-container {
+  background: white;
+  width: 100%;
+}
+
+.nav-main {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1280px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.nav-main h3 {
+  margin-left: 10px;
+}
+
+.signout {
+  margin: 10px;
+  align-self: flex-end;
+}
+
+.signout {
+  padding: 10px 15px;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.signout:hover {
+  background: gray;
+  color: white;
+  box-shadow: 2px 2px rgb(180, 180, 180);
+  cursor: pointer;
+}
+
+/* Form */
+
+.form-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container h3 {
+  font-weight: 300;
+  margin: 1rem 0 0.5rem;
+}
+
+.form-container form {
+  display: flex;
+  flex-flow: column wrap;
+  width: 248px;
+  padding: 20px 30px;
+  box-shadow: 3px 3px rgb(194, 194, 194);
+  border-radius: 2px;
+  background: white;
+}
+
+.form-container form input {
+  background: rgb(242, 242, 242);
+  border: 1px solid white;
+}
+
+.form-container form input:focus {
+  outline: none;
+  background: white;
+  border-bottom: 1px solid gray;
+  transition: border-bottom .1s ease-in;
+  border-radius: 0px;
+}
+
+.form-container form input, button {
+  margin: 15px 0;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.form-container form button {
+  width: 66%;
+  align-self: center;
+  font-size: .8rem;
+}
+
+.form-container button:focus {
+  outline: none;
+}
+
+.form-container button:hover {
+  cursor: pointer;
+  background: gray;
+  box-shadow: 2px 2px rgb(194, 194, 194);
+  border: 1px solid gray;
+  color: white;
+  transition: all .04s ease-in;
 }

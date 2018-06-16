@@ -20,6 +20,7 @@ class Login extends React.Component {
                 this.props.history.push('/jokes');
             })
             .catch(err => { 
+                if (err.message.includes('422')) err.message = 'Invalid credentials. Please try again.'
                 this.setState({ error: err.message })
             });
     }
@@ -28,16 +29,20 @@ class Login extends React.Component {
         const { username, password, error } = this.state;
         return (
             <div>
-                <form>
-                    <input type="text" name="username" value={username} placeholder="username" onChange={this.handleChange}/>
-                    <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
-                    <button onClick={this.handleSubmit}>Log In</button>
-                </form>
-                {error ? (
-                    <div>
-                        <p>Please Log In</p>
-                    </div>
-                ):(null)}
+                <h3>Welcome to Dad Jokes</h3>
+                <div className="form-container">
+                    <form>
+                    <h3>Login</h3>
+                        <input type="text" name="username" value={username} placeholder="username" onChange=    {this.handleChange}/>
+                        <input type="password" name="password" value={password} placeholder="password" onChange=    {this.handleChange}/>
+                        <button onClick={this.handleSubmit}>Log In</button>
+                    </form>
+                    {error ? (
+                        <div>
+                            <p>{error}</p>
+                        </div>
+                    ):(null)}
+                </div>
             </div>
         );
     }
