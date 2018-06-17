@@ -6,7 +6,7 @@ class Login extends React.Component {
     state = {
         username: "me1",
         password: "1234",
-        error: false
+        message: false
     }
 
     handleChange = e => {
@@ -22,28 +22,24 @@ class Login extends React.Component {
             })
             .catch(err => { 
                 if (err.message.includes('422')) err.message = 'Invalid credentials. Please try again.'
-                this.setState({ error: err.message })
+                this.setState({ message: err.message })
             });
     }
 
     render() {
-        const { username, password, error } = this.state;
+        const { username, password, message } = this.state;
         return (
             <div>
                 <h3>Welcome to Dad Jokes</h3>
                 <div className="form-container">
                     <form>
+                        {message ? (<div className="message"><p>{message}</p></div>) : (null)}
                     <h3>Login</h3>
                         <input type="text" name="username" value={username} placeholder="username" onChange=    {this.handleChange}/>
                         <input type="password" name="password" value={password} placeholder="password" onChange=    {this.handleChange}/>
                         <button onClick={this.handleSubmit}>Log In</button>
                     </form>
                     <Link to="/register" className="register-link">Register</Link>
-                    {error ? (
-                        <div>
-                            <p>{error}</p>
-                        </div>
-                    ):(null)}
                 </div>
             </div>
         );

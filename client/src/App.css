@@ -14,7 +14,7 @@ a:visited {
   margin: 1rem;
   color: rgb(70, 70, 70);
   text-decoration: underline;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .App {
@@ -115,6 +115,23 @@ a:visited {
   margin: 1rem 0 0.5rem;
 }
 
+.message {
+  position: relative;
+}
+
+.message p {
+  font-size: 0.8rem;
+  color: red;
+  position: absolute;
+  width: 110%;
+  top: -20px;
+  left: -10px;
+}
+
+.success p {
+  color: green;
+}
+
 .form-container form {
   display: flex;
   flex-flow: column wrap;
@@ -129,6 +146,7 @@ a:visited {
   background: rgb(242, 242, 242);
   border: 1px solid white;
   width: 100%;
+  font-size: 0.8rem;
 }
 
 .form-container form input:focus {
@@ -148,7 +166,7 @@ a:visited {
 .form-container form button {
   width: 66%;
   align-self: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .form-container button:focus {
